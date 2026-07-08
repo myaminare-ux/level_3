@@ -64,9 +64,7 @@ body {
     z-index:60;
     padding:20px;
 }
-#wrap main .write_popup .user_write {
-    width:100%;
-}
+#wrap main .write_popup .user_write {}
 #wrap main .write_popup #popup_btn {
     background-color:thistle;
     width:46px; height:46px;

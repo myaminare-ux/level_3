@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/dom01.css">
     <!-- js -->
-    <script src="./scripts/dom01.js"></script>
+    <script src="./scripts/dom01.js" defer></script>
+    <!-- script의 defer 속성 : body 태그를 모두 읽고 script 나중에 처리하라는 속성 -->
 </head>
 <body>
     <div id="wrap">
@@ -37,12 +38,12 @@
                 <li><span class="date">07.08</span><em class="list">복습하기</em></li>
                 <li><span class="date">07.08</span><em class="list">공부하기</em></li>
             </ul>
-            <button id="write_btn"><img src="#" alt="글쓰기창 띄우기"></button>
+            <button id="write_btn" onclick="popupShow()"><img src="#" alt="글쓰기창 띄우기"></button>
             <div class="write_popup">
                 <input type="text" class="user_write" placeholder="add a new task">
                 <button id="popup_btn"><img src="#" alt="할 일 등록하기"></button>
             </div>
-            <div class="popup_bg"></div>
+            <div class="popup_bg" onclick="popupHide()"></div>
         </main>
     </div>
 </body>
