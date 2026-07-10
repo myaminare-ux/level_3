@@ -48,3 +48,17 @@
     * 콘솔 결과 화면에서 `null` 또는 오류가 없는지 확인
     * `null`이 뜬다면 HTML script 작성 위치로 가서 defer 속성 추가
         * `<sctipt src="경로" defer></sctipt>`
+## 실제 요소 크기와 관계없는 다양한 디자인 포인트 만드는 방법
+### css의 가상 선택자(실제 태그 없이 가상의 요소를 만든다.)
+### after, before
+* `선택자::after`
+* `선택자::befroe`
+* 가상 선택자의 필수 속성 : `content`, `display`, `width`, `height`, `position`
+### 작성 예시
+`선택자::after{`
+    `content::'';`
+    `display:block`
+    `wdith:가로 크기px; height:세로 크기px;`
+    `position:absolute; left right top bottom 등의 위치 좌표 추가 작성`
+`}`
+* after, before가 적용된 선택자에 `position:relative;` 기준 잡기
