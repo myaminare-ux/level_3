@@ -62,3 +62,33 @@
     `position:absolute; left right top bottom 등의 위치 좌표 추가 작성`
 `}`
 * after, before가 적용된 선택자에 `position:relative;` 기준 잡기
+# form 태그 관련 요약
+## form 태그와 action, method
+* `form` : 검색, 로그인, 회원가입 등의 특정 주제로 묶여있는 그룹
+<!-- (사용자가 실제로 입력하고 그 입력한 값이 웹&앱에 전송되는 범위를 지정하는 역할) -->
+* `action` : 그룹에 작성 또는 선택된 사용자 정보를 전달하는 서버 주소
+<!-- (입력 받은 데이터의 전송할 곳의 주소(장소)) -->
+* `methood` : 데이터를 보내는 전송 방식(get, post(보안))
+<!-- (데이터를 서버로 전송하는 방식 지정
+    * get(주소창에 공개 가능), post(보안이 필요한 내용에 쓰이므로 주소창에 공개 불가능))  -->
+## input태그와 type
+* `input` : 사용자가 입력 또는 선택할 때 작성하는 시작 태그 (type 필수)
+<!-- 사용자가 직접 입력이 가능한 입력창 or 직접 선택이 가능한 선택지 -->
+* `type` : **작성 종류에 따라** type 선택
+    * 입력 양식 - type : text, password, tel, email, number search 등
+    * 선택 양식 - type : radio, checkbox, select, option 등
+## name
+* action으로 저장된 사이트 서버 위치에 사용자가 입력한 데이터를 전송할 때 구분하는 데이터 명칭
+    * 이름 tom, 아이디 tom 값만 보고 구분을 정확히 못하는 경우 name 필수
+    * userName => tom, userId => `name="userName"`
+    * 선택 양식에서는 name의 의미를 그룹명으로 사용, 위 작성 내용은 입력 양식에 해당
+* form, input-입력 양식 : 서버에 전송되어 입력값을 구분할 수 있게 붙이는 이름
+* input-선택 양식 : 하나의 공통된 그룹명
+## value
+* `input - 입력 양식` : 처음부터 입력된 초기값(예-쇼핑몰의 수량 1) 
+<!-- 입력되어 있는 기본값 -->
+* `input - 선택 양식` : 데이터 구분 목적(본래 name이 쓰이는 목적과 동일)
+## id, class
+* js, css에서 구분하기 위한 디자인 또는 동적 프로그래밍 용도 이름
+* id : 중복이 불가능한 이름
+* class : 중복이 가능한 이름
