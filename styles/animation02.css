@@ -1,0 +1,330 @@
+/* animation02.css */
+.step2 {}
+.step2 p {
+    background-image:url(https://i.pinimg.com/736x/cf/bc/d9/cfbcd954294303045e2e415edaabcf1e.jpg);
+    background-position:center;
+    background-size:100%;
+    background-repeat:no-repeat;
+    width:50%; height:350px;
+    /* transition:(애니메이션 적용 속성) (지속 시간); */
+    transition:
+        background-size 0.8s,
+        background-image 2s,
+        background-position 0.3s;
+}
+/* p에 마우스 올렸을 때 배경 이미지 속성 애니메이션 적용 */
+.step2 p:hover {
+    background-size:150%;
+    background-image:url(https://i.pinimg.com/vwebp/736x/f4/92/b0/f492b090609c66b0d01447db065521dc.webp);
+    background-position:center bottom;
+}
+/* 가속도 애미네이션 연습 */
+#map {
+    padding:10px;
+    background-color:#f5f5f5;
+    display:flex;
+    flex-flow:column nowrap;
+}
+#map #start {
+    width:50px; height:50px;
+    border-radius:50%;
+    background:#f00;
+    color:#fff;
+}
+#map img {
+    width:100px;
+}
+#map .bread1 {
+    /* transform:translateX(100px); */
+    transition:transform 0.5s ease;
+}
+#map .bread2 {
+    transition:transform 0.5s linear;
+}
+#map span {transform:scaleX(-1);}
+#map span .bread3 {
+    transform:translateX(400px);
+    transition:transform 0.5s ease-in;
+}/* 기본(초기 위치) */
+/* transform에 두개 이상의 속성이 적용됐을 때 transition은 그 속성을 따로 구분하는 게 아닌 transform에 들어간 모든 속성에 동시에 애니메이션을 적용한다. 따로 적용하고 싶다면 부모-자식 구조로 transform 속성을 나눠야 한다. */
+#map .bread4 {
+    transition:transform 0.5s ease-out;
+}
+/* 시작 버튼에 마우스를 올리면 1번 빵이 오른쪽으로 400px 만큼 이동 */
+#map #start:hover + .bread1 {
+    transform:translateX(400px);
+}
+/* 시작 버튼에 마우스를 올리면 2번 빵이 오른쪽으로 400px, 아래로 15px 만큼 이동 */
+#map #start:hover ~ .bread2 {
+    transform:translate(400px, 15px);
+}
+/* 시작 버튼에 마우스를 올리면 3번 빵이 오른쪽으로 400px에서 왼쪽 0 위치 만큼 이동 */
+#map #start:hover ~ span .bread3 {
+    transform:translateX(0);
+}
+/* 시작 버튼에 마우스를 올리면 4번 빵이 10도 회원, 오른쪽으로 100px 이동 */
+#map #start:hover ~ .bread4 {
+    transform:rotate(10deg) translateX(100px);
+}
+/* ------------------------------------------- 네비게이션 메뉴 + 서브 메뉴 */
+nav {
+    width:350px;
+    margin:60px 20px;
+    text-align:center;
+}
+nav > ul {}/* 추후 다른 li가 나올 수 있으므로 ul에 hover를 주면 안 됨 */
+nav > ul > li {position:relative;}
+nav > ul > li > a {/* 메인 메뉴-a */
+    background-color:skyblue;
+    color:#fff;
+    display:block;
+    line-height:40px;
+}
+nav > ul > li .sub {
+    /* display:none; */ /* 1. 서브 메뉴 초기 숨기기 */
+    height:0;
+    overflow:hidden;
+    position:absolute;
+    width:100%;
+    opacity:0;
+}
+nav > ul > li .sub li {}
+nav > ul > li .sub li a {/* 서브 메뉴-a */
+    background-color:pink; 
+    color:slateblue;
+    display:block;
+    line-height:30px;
+}
+.hero_bnr {
+    background-color:plum;
+    height:400px;
+}
+/* 메인 메뉴에 마우스를 올리면 서브 메뉴가 실행된다 -> CSS */
+/* nav > ul > li:hover .sub {display:block;} */
+nav > ul > li:hover .sub {
+    height:120px;
+    opacity:1;
+    transition:
+    height 0.4s ease,
+    opacity 0.5s ease-out;
+}
+/* 메인 메뉴를 클릭(터치)하면 서브 메뉴가 실행된다 -> JS */
+/* ------------------------------------------- 에어비앤비 메뉴 만들기 */
+.airbnb {}
+
+.airbnb > .lnb {
+    width:400px;
+    display:flex;
+    flex-flow:row nowrap;
+    margin:10px 20px;
+    text-align:center;
+}
+.airbnb > .lnb > li {/* 자식(a)크기를 기본으로 따라감 */
+    background-color:#f5f5f5;
+    position:relative;
+    border-radius:20px;
+    margin-right:20px;
+    width:100%;
+}
+.airbnb > .lnb > li > a {
+    color:#000;
+    display:block;
+    text-align:center;
+    line-height:40px;
+}
+.airbnb > .lnb > li .sub {
+    background-color:#fff;
+    box-shadow:0 0 10px rgba(0,0,0,0.15);
+    /* padding:10px; */
+    margin-top:10px;
+    border-radius:15px;
+    /* 서브 메뉴가 실행될 시 다른 요소를 미는 현상 막기 */
+    position:absolute;
+    right:0;
+    width:max-content; height:0;
+    /* 애니메이션(transition)사용을 위한 초기값 설정 */
+    overflow:hidden;
+    opacity:0;
+    transition:
+    height 0.5s ease,
+    opacity 0.5s ease;
+}
+.airbnb > .lnb > li .sub li {
+    border-bottom:1px solid #000;
+    padding:0 20px;
+    width:100%;
+}
+.airbnb > .lnb > li .sub li a {
+    color:#000;
+    width:max-content;
+    line-height:40px;
+    display:block;
+    text-align:left;
+}
+.airbnb > .lnb > li .sub li:nth-child(5) {
+    border:0;
+}
+.airbnb_hero {
+    background-color:skyblue;
+    height:400px;
+}
+.airbnb > .lnb > li:hover .sub {
+    height:205px;
+    opacity:1;
+}
+/* ------------------------------------------- 아이폰 광고 + 그라데이션 애니메이션 효과 */
+.gra1 {
+    border-radius:25px;
+    margin:50px auto;
+    width:85%; height:600px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    background:linear-gradient(360deg, #f5f5f5, rgb(255, 156, 172));
+    position:relative;
+    /* transition:background-size 2s;
+    background-size:100%; */
+}
+.gra1 * {/* gra1의 모든 자식, 자손에 넣은 전체 평균값 */
+    position:relative;
+    z-index:400;
+}
+.gra1::after {
+    background:linear-gradient(360deg, rgb(212, 244, 255), rgb(111, 111, 248));
+    border-radius:25px;
+    content:'';
+    display:block;
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    opacity:0;
+    z-index:300;/* gra1의 after에 별도로 들어간 덮어쓰기 값 */
+    transition:opacity 1s;
+}
+.gra1 h1 {
+    line-height:1.3;
+    font-weight:900;
+    font-size:3.5rem;
+    text-align:center;
+    letter-spacing:-0.02em;
+    /* 글자에 적용하는 그라데이션 효과 + 애니메이션 */
+    background:linear-gradient(90deg, rgb(149, 130, 255),  #fff, rgb(193, 182, 255), #fff);
+    /* 글자 안에서만 보이는 그라데이션 효과 만들기 속성(고정 속성과 값) */
+    color:transparent;/* 글자 색상을 투명하게 */
+    -webkit-background-clip:text;/* 투명한 글자 안에 배경색이 마스크로 적용 */
+    /* 글자 애니메이션 준비 속성(색상변경X, 크기와 위치를 이용한 동적) */
+    background-size:500%;
+    background-position:0 0;/* 시작 위치 설정 */
+    transition:background-position 4s;
+}
+.gra1 h1:hover {background-position:100% 0;}/* 올렸을 때 배경 위치 변경값 */
+.gra1 a {
+    display:inline-block;
+    background:#000;
+    color:#fff;
+    padding:12px 22px;
+    border-radius:18px;
+}
+/* gra1에 마우스를 올리면 gra1 그라데이션 변경 */
+/* gra1에 마우스를 올리면 가상 after의 opacity 1로 변경 */
+.gra1:hover::after {
+    opacity:1;
+    /* background-size:200%; */
+} /* hover에서 뒤에 값을 붙이면 뒷 값이 변경되고 쓰지 않으면 해당 값이 변경된다. */
+/* ------------------------------------------- 그라데이션 연습 */
+.gra2 {
+    border-radius:25px;
+    margin:50px auto;
+    width:85%; height:600px;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    background:linear-gradient(180deg, rgb(238, 173, 184), rgb(159, 159, 255));
+    background-size:300%;
+    background-position:0 0;
+    position:relative;
+}
+.gra2 * {
+    letter-spacing:-0.02em;
+    line-height:1.3;
+    position:relative;
+    left:0%; top:0%;
+    z-index:700;
+}
+.gra2::after {
+    border-radius:25px;
+    content:'';
+    display:block;
+    width:100%; height:100%;
+    position:absolute;
+    left:0; top:0;
+    background:linear-gradient(180deg,  rgb(238, 173, 184), rgb(255, 73, 216));
+    opacity:0;
+    z-index:600;
+    transition:opacity 1s;
+}
+.gra2 h2 {
+    font-size:2.5rem;
+    font-weight:900;
+    text-align:center;
+    background:linear-gradient(90deg, rgb(149, 130, 255), #fff, rgb(193, 182, 255), #fff);
+    color:transparent;
+    -webkit-background-clip:text;
+}
+.gra2 h3 {
+    font-size:2rem;
+    font-weight:800;
+    text-align:center;
+    background:linear-gradient(90deg, rgb(149, 130, 255), #fff, rgb(193, 182, 255), #fff);
+    color:transparent;
+    -webkit-background-clip:text;
+    background-size:500%;
+    background-position:0 0;
+    transition:background-position 4s;
+}
+.gra2 img {
+    width:100%;
+    position:absolute; left:0; top:20%;
+    transition:top 0.8s linear;
+}
+.gra2:hover {background-position:100% 0;}
+.gra2:hover img {top:30%;}
+.gra2 h2:hover h3 {
+    background-size:100%;
+    background-position:100% 0;
+}
+.gra2:hover::after {opacity:1;}
+
+/* ------------------------------------------- gnb + snb */
+.gnb {}
+.gnb > ul {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:center;
+}
+.gnb > ul > li {position:relative;}
+.gnb > ul > li > a {
+    background-color:rgb(255, 200, 255);
+    color:#222;
+    line-height:30px;
+    display:block;
+    padding:0px 10px;
+}
+.gnb > ul > li > .snb {
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:center;
+    position:absolute;
+    width:max-content;
+}
+.gnb > ul > li > .snb li {}
+.gnb > ul > li > .snb li a {
+    background-color:rgb(194, 194, 255);
+    line-height:50px;
+    display:block;
+    padding:0px 10px;
+}
