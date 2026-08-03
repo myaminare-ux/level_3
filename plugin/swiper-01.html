@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>스와이퍼(Swiper)</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <!--swiper 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--swiper 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <style>
+        /* 내부 스타일 시트 작성 위치 */
+        .event_bnr1 {
+            width:600px;
+            background-color:pink;
+            margin:20px auto;
+            overflow:hidden;
+        }
+        .event_bnr1 .wrapper {
+            display:flex;
+            flex-flow:row nowrap;
+            width:max-content;
+            transform:translateX(-200px);
+        }
+        .event_bnr1 .wrapper .slide {
+            width:200px; height:300px;
+            border:2px solid #000;
+        }
+        .event_bnr1 .wrapper .slide:nth-child(even) {
+            border-color:lightskyblue;
+        }
+        /* even==짝수번째, odd==홀수번째 */
+        /* ---------------------------- 슬라이드2 */
+        /* 시작 선택자는 공통 클래스(swiper)가 아닌 개별명으로 쓰기 */
+        .event_bnr2 {
+            /* 기본값 : overflow:hidden; */
+            width:800px; height:300px; 
+            margin:30px auto; background-color:lightskyblue;
+        }
+        .event_bnr2 .swiper-wrapper {
+            /* 기본값 : flex, row nowrap, max-content, relative, translateX(js 내장)  */
+        }
+        .event_bnr2 .swiper-wrapper .swiper-slide {
+            /* 기본값 : relative */
+            border:3px solid blue;
+            /* 주의사항 : slide 가로 크기는 JS에서만 명시 가능. CSS(X) */
+            height:300px;
+            background:lightcyan;
+        }
+        /* ---------------------------- 슬라이드3 */
+        .event_bnr3 {
+            width:600px; height:200px;
+            margin:30px auto; background-color:lightgoldenrodyellow;
+        }
+        .event_bnr3 .swiper-wrapper {}
+        .event_bnr3 .swiper-wrapper .swiper-slide {
+            border:2px solid rgb(7, 150, 19);
+            height:200px;
+            background-color:rgb(202, 255, 159);
+        }
+    </style>
+</head>
+<body>
+    <h1>Swiper Plugin-1</h1>
+    <div class="event_bnr1"><!-- 슬라이드가 보이는 영역 -->
+        <div class="wrapper"><!-- 슬라이드들을 묶는 부모(실제 움직이는 대상) -->
+            <div class="slide">슬라이드1</div><!-- 개별 슬라이드 -->
+            <div class="slide">슬라이드2</div>
+            <div class="slide">슬라이드3</div>
+            <div class="slide">슬라이드4</div>
+        </div>
+    </div>
+    <!-- ---------------------------- 슬라이드2 -->
+    <h1>Swiper Plugin-2</h1>
+    <!-- div.swiper>div.swiper-wrapper>div.swiper-slide*개수 -->
+    <!-- 시작 swiper 태그에는 반드시 한 칸 띄고 별개의 클래스 이름 설정하기 -->
+    <!-- 태그만 작성 시에 슬라이드1만 보이는 게 정상 -->
+    <div class="swiper event_bnr2"><!-- 슬라이드가 보이는 영역 -->
+        <div class="swiper-wrapper"><!-- 슬라이드들을 묶는 부모(실제 움직이는 대상) -->
+            <div class="swiper-slide">슬라이드1</div><!-- 개별 슬라이드 -->
+            <div class="swiper-slide">슬라이드2</div>
+            <div class="swiper-slide">슬라이드3</div>
+            <div class="swiper-slide">슬라이드4</div>
+        </div>
+    </div>
+    <!-- ---------------------------- 연습3 -->
+    <!-- 태그 규칙 지키기 -> CSS 기본값 체크하면서 필요한 값 적용 -> JS 적용 -->
+    <h1>Swiper Plugin-3</h1>
+    <div class="swiper event_bnr3">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">슬라이드1</div>
+            <div class="swiper-slide">슬라이드2</div>
+            <div class="swiper-slide">슬라이드3</div>
+            <div class="swiper-slide">슬라이드4</div>
+        </div>
+    </div>
+
+    <script>
+        // 내부 자바스크립트(프로젝트 시 외부 js 파일로 별도 관리)
+        const event_bnr2 = new Swiper('.event_bnr2', {
+            //옵션 문법
+            //옵션:값, 옵션:값
+            //슬라이드 효과
+            // direction: 'horizontal', // 기본값
+            direction: 'vertical', // 수직 이동(swiper의 세로 크기 필수)
+            // effect:'fade',
+            //반복
+            loop: true, // 기본값 : false
+            //자동재생
+            autoplay:{
+                delay:3000,
+                disableOnInteraction:false, // 마우스를 올리면 멈출건지 말건지 설정
+            },
+            speed:200,
+            //슬라이드 개수
+            slidesPerView:2,
+            //슬라이드 간격 (flex의 gap과 동일)
+            spaceBetween:30,
+        })
+        const event_bnr3 = new Swiper('.event_bnr3', {
+            direction:'horizontal',
+            // direction:'vertical',
+            // effect:'fade',
+            loop:true,
+            autoplay:{
+                display:5000,
+                disableOnInteraction:false,
+            },
+            speed:600,
+            slidesPerView:2,
+            spaceBetween:5,
+
+        })
+    </script>
+</body>
+</html>
