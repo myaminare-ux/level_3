@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스와이퍼 활용-2</title>
+    <!--swiper 필수 css cdn 연결-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!--swiper 필수 JS cdn 연결-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <style>
+        /* 연습용 내부 스타일 시트 위치 */
+        /* swiper 내장 CSS - swiper 플러그인에 기본 내장된 css는 디자인 시 사용금지 */
+        /* swiper -> overflow:hidden; position:relative; */
+        /* swiper-wrapper -> position:relative; width:max-content; transform; */
+        /* swiper-slide -> position:relative; (가로 크기 금지) */
+        /* swiper-button-prev, next는 absolute 기본 내장 */
+        /* 여기어때 클론 디자인 */
+        /* ---------------------- 여기어때 국내여행 */
+        .yeogi {
+            width:1200px; margin:100px auto;
+            background-color:#f5f5f5;
+        }
+        .yeogi h1 {}
+        .yeogi .popular_wrap {
+            position:relative;
+        }
+        .yeogi .popular_wrap .popular_perv {
+            transform:translateX(-50px);
+        }
+        .yeogi .popular_wrap .popular_next {
+            transform:translateX(50px);
+        }
+        .yeogi .korea_popular_slide {}
+        .yeogi .korea_popular_slide .swiper-wrapper {}
+        .yeogi .korea_popular_slide .swiper-wrapper .swiper-slide {}
+        .yeogi .korea_popular_slide .swiper-wrapper .swiper-slide a {}
+        .yeogi .korea_popular_slide .swiper-wrapper .swiper-slide a .photo {
+            border-radius:10px;
+            overflow:hidden;
+            height:190px;
+        }
+        .yeogi .korea_popular_slide .swiper-wrapper .swiper-slide a .photo img {
+            width:auto; height:100%;
+        }
+        .yeogi .korea_popular_slide .swiper-wrapper .swiper-slide a h2 {}
+        /* ---------------------- 여기어때 패키지 */
+        .yeogi_pakage {
+            width:1200px; margin:0 auto;
+            background-color:#f5f5f5;
+        }
+        .yeogi_pakage h1 {}
+        .yeogi_pakage .pakage_wrap {
+            position:relative;
+        }
+        .yeogi_pakage .pakage_wrap .pakage_perv {
+            transform:translateX(-50px);
+        }
+        .yeogi_pakage .pakage_wrap .pakage_next {
+            transform:translateX(50px);
+        }
+        /* .yeogi_pakage .pakage_wrap .pakage_perv,
+        .yeogi_pakage .pakage_wrap .pakage_next {background-color:yellow; border-radius:50%; padding:10px;}
+        .yeogi_pakage .pakage_wrap .pakage_perv svg,
+        .yeogi_pakage .pakage_wrap .pakage_next svg {color:red;} */
+        .yeogi_pakage .pakage_wrap .pakage_perv,
+        .yeogi_pakage .pakage_wrap .pakage_next {background-color:yellow; border-radius:50%; padding:10px;}
+        .yeogi_pakage .pakage_wrap .pakage_perv svg,
+        .yeogi_pakage .pakage_wrap .pakage_next svg {display:none;}
+        /* swiper prev, next 버튼 요소는 기본적으로 svg 이미지를 내장하고 있음
+        이전/다음 버튼은 각각 이미지가 있는 게 아니라 스케일X를 사용해서 반전 */
+        /* prev, next 모양은 그대로 색상, 크기만 변경하고 싶은 경기 = css 변경(내장된 svg까지 선택자를 써야함) */
+        /* prev, next 모양을 변경하고 싶은 경우 = 숨기기 */
+
+        .yeogi_pakage .pakage_wrap .pakage_slide {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .pakage_photo {
+            border-radius:10px;
+            overflow:hidden;
+            height:170px;
+        }
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .pakage_photo img {
+            width:100%; 
+        }
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .schedule {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a h2 {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .price {}
+        .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .price em {}
+        /* 트립닷컴 클론 디자인 */
+
+    </style>
+</head>
+<body>
+
+    <!-- 여기어때 클론코딩 -->
+    <section class="yeogi">
+        <h1>국내 인기 여행지</h1>
+        <!-- div.swiper.korea_popular_slide>div.swiper-wrapper>div.swiper-slide -->
+        <div class="popular_wrap">
+            <div class="swiper korea_popular_slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide travel1">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel2">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel3">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel4">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel5">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel6">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel7">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel8">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel9">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                    <div class="swiper-slide travel10">
+                        <a href="#">
+                            <p class="photo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcaqOx5u4AlPa-2sm-FnRx1DSWCNaY_fqNV3ulKvBYw&s=10" alt=""></p>
+                            <h2>제주도</h2>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev popular_perv"></div>
+            <div class="swiper-button-next popular_next"></div>
+        </div>
+    </section>
+    <section class="yeogi_pakage">
+        <h1>패키지 홈쇼핑 방영상품</h1>
+        <div class="pakage_wrap">
+            <div class="swiper pakage_slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide pakage1">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><em>499,000</em>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage2">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage3">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage4">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage5">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage6">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage7">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pakage8">
+                        <a href="#">
+                            <p class="pakage_photo"><img src="https://image1.onlinetour.co.kr/resize.php?w=564&u=https://image1.onlinetour.co.kr/obms_images/tour_info/CN/20231212162100871B15A5D0B843638E806AF1D2F2ECA1.JPG" alt=""></p>
+                            <p class="schedule">4박 6일∙인천 출발</p>
+                            <h2>Hot중경(충칭)6일[노팁+6대옵션]+장가계/부용진+72기루</h2>
+                            <p class="price"><span>499,000</span>원</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev pakage_perv"></div>
+            <div class="swiper-button-next pakage_next"></div>
+        </div>
+    </section>
+
+    <!-- 트립닷컴 클론코딩 -->
+
+    <script>
+        /* 연습용 내부 스크립트(JS) 위치 */
+        // 여기어때 클론 스크립컴
+        // -------------------------- 여기어때 국내여행
+        const yeogiSlide = new Swiper('.korea_popular_slide',{
+            slidesPerView:6,
+            spaceBetween:15,
+            navigation:{
+                prevEl:'.popular_perv', // 공통 이름이 아닌 개별 이름으로 연결
+                nextEl:'.popular_next',
+	        },
+        });
+        // -------------------------- 여기어때 패키지
+        const pakageSlide = new Swiper('.pakage_slide',{
+            slidesPerView:4,
+            spaceBetween:15,
+            navigation:{
+                prevEl:'.pakage_perv',
+                nextEl:'.pakage_next',
+            },
+        });
+        // 트립닷컴 클론 스크립트
+
+    </script>
+</body>
+</html>
