@@ -91,9 +91,116 @@
         .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a h2 {}
         .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .price {}
         .yeogi_pakage .pakage_wrap .pakage_slide .swiper-wrapper .swiper-slide a .price em {}
-        /* 트립닷컴 클론 디자인 */
 
-    </style>
+        /* 트립닷컴 클론 디자인 */
+        .trip_recommend {
+            width:1200px;
+            margin:0 auto 100px;
+        }
+        .trip_recommend .title {}
+        .trip_recommend .title h2 {
+            font-size:1.3em;
+        }
+        .trip_recommend .title h2 .more {}
+        /* ------------------------ 추천 여행지 슬라이드 시작 */
+        .trip_recommend .recommend_slide {}
+        .trip_recommend .recommend_slide .swiper-wrapper {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide {}
+        /* ------------------------ 상품 본문 링크 */
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container {
+            background-image:url(https://ak-d.tripcdn.com/images/10050m000000dem9bA8DB_W_960_0_R5_Q60.webp?proc=source/trip);
+            background-size:cover;
+            background-position:center;
+            height:400px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            padding:15px;
+            border-radius:15px;
+        }
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container * {color:#fff;}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .best_keyword {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .best_keyword img {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .keyword_group {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .keyword_group span {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .keyword_group span img {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .travel_name {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .review_score {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .review_score .score {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .container .info .review_score .review {}
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .wish_trip {
+            position:absolute;
+            right:15px; top:15px;
+        }
+        .trip_recommend .recommend_slide .swiper-wrapper .swiper-slide .wish_trip img {}
+        /* ------------------------------------------- 트립닷컴 호텔 */
+        .trip_hotel {
+            width:1200px;
+            margin:100px auto 100px;
+        }
+        .trip_hotel .title {
+            display:flex;
+            justify-content:space-between;
+        }
+        .trip_hotel .title h2 {}
+        .trip_hotel .title .more {}
+        .trip_hotel .all {position:relative;}
+        .trip_hotel .all .hotel_recom_prev {
+            transform:translateX(-40px);
+        }
+        .trip_hotel .all .hotel_recom_next {
+            transform:translateX(40px);
+        }
+        .trip_hotel .all .hotel_recom_page {
+            transform:translateY(40px);
+        }
+        /* ----------- 슬라이드 시작 */
+        .trip_hotel .hotel_slide {}
+        .trip_hotel .hotel_slide .swiper-wrapper {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide {
+            border:1px solid rgba(0, 0, 0, 0.3);
+            border-radius:10px;
+            overflow:hidden;
+        }
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container {
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+        }
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .hotel_photo {
+            background-image:url(https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_R_960_660_R5_D.jpg);
+            background-size:cover;
+            background-position:center;
+            height:200px;
+        }
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info {
+            padding:15px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            gap:40px;
+        }
+        /* ----------- 디테일 */
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis * {margin-bottom:4px;}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area h3 {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area h3 .name {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area h3 .level {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area .score_review {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area .score_review .hotel_score {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .detalis .hotel_area .score_review .hotel_review {}
+        /* ----------- 가격 */
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .low_price {}
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .container .info .low_price em {}
+        /* ----------- 관심 호텔 */
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .wish_hotel {
+            position:absolute;
+            right:15px; top:15px;
+        }
+        .trip_hotel .hotel_slide .swiper-wrapper .swiper-slide .wish_hotel img {}
+        </style>
 </head>
 <body>
 
@@ -247,10 +354,334 @@
     </section>
 
     <!-- 트립닷컴 클론코딩 -->
+    <section class="trip_recommend">
+        <div class="title">
+            <h2>이런 곳은 어떠세요?</h2>
+            <a href="#" class="more">더 보기</a>
+        </div>
+        <div class="swiper recommend_slide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide trip1">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>파리</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">노트르담 대성당</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 2,479개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip2">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip3">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip4">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip5">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip6">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip7">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+                <div class="swiper-slide trip8">
+                    <a href="#" class="container">
+                        <p class="best_keyword"><img src="#" alt="트립 베스트"></p>
+                        <div class="info">
+                            <div class="keyword_group">
+                                <span>싱가포르</span>
+                                <span><img src="#" alt="인기도">10</span>
+                            </div>
+                            <h3 class="travel_name">유니버설 스튜디오 싱가포르</h3>
+                            <p class="review_score">
+                                <span class="score">4.7/5</span>
+                                <span class="review">리뷰 33,014개</span>
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#" class="wish_trip"><img src="#" alt="관심 여행지 등록"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="trip_hotel">
+        <div class="title">
+            <h2>트립닷컴이 엄선한 호텔에서 아늑한 휴식을 즐겨보세요.</h2>
+            <a href="#" class="more">더 보기</a>
+        </div>
+        <div class="all">
+            <div class="swiper hotel_slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide hotel1">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel2">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel3">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel4">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel5">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel6">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel7">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                    <div class="swiper-slide hotel8">
+                        <a href="#" class="container">
+                            <p class="hotel_photo"><!-- bg <img src="https://ak-d.tripcdn.com/images/0225o12000ap1xkmw2CD7_W_600_0_R5.webp" alt="안다즈 도쿄 컨셉 바이 하얏트"> --></p>
+                            <div class="info">
+                                <div class="detalis">
+                                    <p class="hotel_area">도쿄</p>
+                                    <h3>
+                                        <span class="name">안다즈 도쿄 컨셉 바이 하얏트</span>
+                                        <span class="level"><img src="" alt="등급"></span>
+                                    </h3>
+                                    <p class="score_review">
+                                        <span class="hotel_score">9.7/10</span>
+                                        <span class="hotel_review">리뷰 239개</span>
+                                    </p>
+                                </div>
+                                <p class="low_price"><em>최저가 736,892원</em></p>
+                            </div>
+                        </a>
+                        <a href="#" class="wish_hotel"><img src="#" alt="관심 호텔 등록"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- 슬라이드 바깥 디자인 위치 -->
+            <div class="swiper-button-prev hotel_recom_prev"></div>
+            <div class="swiper-button-next hotel_recom_next"></div>
+            <div class="swiper-pagination hotel_recom_page"></div>
+            <div class="swiper-scrollbar hotel_recom_scroll"></div>
+        </div>
+    </section>
 
     <script>
         /* 연습용 내부 스크립트(JS) 위치 */
-        // 여기어때 클론 스크립컴
+        // 여기어때 클론 스크립트
         // -------------------------- 여기어때 국내여행
         const yeogiSlide = new Swiper('.korea_popular_slide',{
             slidesPerView:6,
@@ -270,6 +701,30 @@
             },
         });
         // 트립닷컴 클론 스크립트
+        // -------------------------- 트립닷컵 해외 여행
+        const tripSlide1 = new Swiper('.recommend_slide', {
+            slidesPerView:4,
+            spaceBetween:20,
+        });
+        // -------------------------- 트립닷컵 호텔
+        const hotelSlide = new Swiper('.hotel_slide', {
+            slidesPerView:4,
+            spaceBetween:20,
+            navigation:{
+                nextEl: '.hotel_recom_next',
+                prevEl: '.hotel_recom_prev',
+            },
+            pagination:{
+                el: '.hotel_recom_page',
+                //type:'bullets'(기본)
+                //type:'fraction' (숫자)
+                //type:'progressbar' (바)
+                type:'bullets',
+            },
+            scrollbar: {
+                el: '.hotel_recom_scroll',
+            },
+        });
 
     </script>
 </body>
